@@ -1,0 +1,29 @@
+.padsContainer{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.pads {
+  background-color: #919a9f;
+  height: 70vh;
+  margin-top: 2%;
+  width: 17%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 10px;
+}
+
+.actions{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin: 3%;
+  border-radius: 15px;
+}
+
+.customButton{
+  border-radius: 15px !important;
+}
