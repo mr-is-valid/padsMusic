@@ -5,13 +5,14 @@
 }
 
 .pads {
-  background-color: #919a9f;
+  background-color: #b6c1c7;
+  border: 2px solid black;
   height: 70vh;
   margin-top: 2%;
-  width: 17%;
+  width: 40%;
   display: flex;
   align-items: center;
-  flex-direction: column;
+  flex-flow: wrap;
   justify-content: space-between;
   border-radius: 10px;
 }

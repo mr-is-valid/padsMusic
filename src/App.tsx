@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -10,8 +10,8 @@ import Pads from './components/pads';
 import EventEmitter from './utils/EventEmitter';
 import './App.css';
 
-function App() {
 
+function App() {
   const [play , setPlay]  = useState(true);
   const [pause, setPause] = useState(false);
 
@@ -27,6 +27,7 @@ function App() {
     EventEmitter.emit('StartLoop',{})
   }
 
+  
   return (
     <>
       <AppBar position="static">
@@ -36,21 +37,22 @@ function App() {
           </Typography>
         </Toolbar>
       </AppBar>
+
       <div className='padsContainer'>
         <div className="pads">
-          {dataSource.sources.map(src => (
-            <Pads source={src} key={src} />
+          {dataSource.sources.map((src,index) => (
+            <Pads source={src} index={index} key={index} />
           ))}
 
           <div className="actions">
             {
-              play ? <Button className='customButton' variant="contained" startIcon={<PlayArrowIcon />} onClick={startLoop}>Play</Button>
+              play ? <Button className='customButton' variant="contained" color="success" startIcon={<PlayArrowIcon />} onClick={startLoop}>Play</Button>
                 : <Button className='customButton' variant="contained" disabled startIcon={<PlayArrowIcon />} onClick={startLoop}>Play</Button>
             }
 
             {
-              pause ? <Button className='customButton' variant="contained" color="error" startIcon={<PauseIcon />} onClick={stopLoop}> Stop</Button>
-                : <Button className='customButton' variant="contained" disabled color="error" startIcon={<PauseIcon />} onClick={stopLoop}> Stop</Button>
+              pause ? <Button className='customButton' variant="contained" color="error" startIcon={<PauseIcon />} onClick={stopLoop}>Pause</Button>
+                : <Button className='customButton' variant="contained" disabled color="error" startIcon={<PauseIcon />} onClick={stopLoop}>Pause</Button>
             }
           </div>
         </div>
